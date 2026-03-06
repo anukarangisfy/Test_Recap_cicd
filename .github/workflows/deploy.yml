@@ -1,0 +1,43 @@
+name: Deploy Recap Application
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: Install Backend Dependencies
+      run: |
+        cd api
+        npm install
+
+    - name: Deploy Backend
+      run: |
+        xcopy api C:\WebApp_Recap4NDC\RECAP4NDC\api /E /Y
+
+    - name: Restart Backend
+      run: |
+        cd C:\WebApp_Recap4NDC\RECAP4NDC\api
+        pm2 restart all
+
+    - name: Install Frontend Dependencies
+      run: |
+        cd web
+        npm install
+
+    - name: Build React Frontend
+      run: |
+        cd web
+        npm run build
+
+    - name: Deploy Frontend
+      run: |
+        xcopy web\build C:\WebApp_Recap4NDC\RECAP4NDC\web\build /E /Y
