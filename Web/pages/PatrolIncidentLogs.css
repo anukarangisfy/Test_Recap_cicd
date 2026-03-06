@@ -1,0 +1,367 @@
+
+
+/* === Transparent Table === */
+.transparent-table .ant-table {
+  background: transparent !important;
+  backdrop-filter: blur(6px);
+  border-radius: 12px;
+  border: 1.949px solid rgba(0, 0, 0, 0.23);  /* changed border opacity slightly for black */
+  box-shadow: -9.048px -9.048px 4.524px -10.556px #fff inset, 
+              -9.048px -9.048px 4.524px -10.556px #fff inset, 
+              -9.048px -9.048px 4.524px -10.556px #fff inset, 
+              12.064px 12.064px 6.786px -13.572px #fff inset;
+}
+
+/* === Transparent Table Header === */
+.transparent-table .ant-table-thead > tr > th {
+  background: rgba(0, 0, 0, 0.05) !important;
+  color: #000;  /* black text */
+  font-weight: bold;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border: 1.949px solid rgba(0, 0, 0, 0.23);
+  box-shadow: -9.048px -9.048px 4.524px -10.556px #fff inset, 
+              -9.048px -9.048px 4.524px -10.556px #fff inset, 
+              -9.048px -9.048px 4.524px -10.556px #fff inset, 
+              12.064px 12.064px 6.786px -13.572px #fff inset;
+  backdrop-filter: blur(6px);
+}
+
+/* === Transparent Table Body Cells === */
+.transparent-table .ant-table-tbody > tr > td {
+  background: transparent !important;
+  color: #000;  /* black text */
+  border: 1.949px solid rgba(0, 0, 0, 0.23);
+  box-shadow: -9.048px -9.048px 4.524px -10.556px #fff inset, 
+              -9.048px -9.048px 4.524px -10.556px #fff inset, 
+              -9.048px -9.048px 4.524px -10.556px #fff inset, 
+              12.064px 12.064px 6.786px -13.572px #fff inset;
+}
+
+/* Hover row effect */
+.transparent-table .ant-table-tbody > tr:hover > td {
+  background: rgba(0, 0, 0, 0.05) !important;  /* slight black highlight on hover */
+}
+.section{
+      overflow: auto;
+    max-height: 620px;
+}
+/* === Filters Section === */
+.filters-section {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 10px;
+  border-radius: 8px;
+  backdrop-filter: blur(8px);
+  margin-bottom: 20px;
+}
+
+/* Inputs, Select, DatePicker */
+.ant-input, .ant-select-selector, .ant-picker-input > input {
+  background: rgba(0, 0, 0, 0.05);
+  color: #000;  /* black text */
+  border: 1px solid rgba(0, 0, 0, 0.23);
+  border-radius: 6px;
+  box-shadow: -10.261px -10.261px 5.13px -11.971px #fff inset,
+              -10.261px -10.261px 5.13px -11.971px #fff inset,
+              13.681px 13.681px 7.696px -15.391px #fff inset;
+}
+
+/* Dropdown background */
+.ant-select-dropdown {
+  background: rgba(0, 0, 0, 0.8) !important;
+  color: #000 !important;  /* black text */
+}
+
+/* === Export Button === */
+.btn-Export {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #000 !important;  /* default text color */
+  border: 2.21px solid rgba(255, 255, 255, 0.23);
+  background: rgba(255, 255, 255, 0.02);
+  padding: 6px 12px;
+  box-shadow: -10.261px -10.261px 5.13px -11.971px #B3B3B3 inset,
+              -10.261px -10.261px 5.13px -11.971px #B3B3B3 inset,
+              -10.261px -10.261px 5.13px -11.971px #B3B3B3 inset,
+              13.681px 13.681px 7.696px -15.391px #FFF inset;
+}
+
+:where(.css-dev-only-do-not-override-xepvsj).ant-btn-variant-outlined:not(:disabled):not(.ant-btn-disabled):hover, :where(.css-dev-only-do-not-override-xepvsj).ant-btn-variant-dashed:not(:disabled):not(.ant-btn-disabled):hover
+
+ {
+    color: #000 !important;  /* default text color */
+    /* border-color: #4096ff; */
+    background: rgba(255, 255, 255, 0.02);
+     box-shadow: -10.261px -10.261px 5.13px -11.971px #B3B3B3 inset,
+              -10.261px -10.261px 5.13px -11.971px #B3B3B3 inset,
+              -10.261px -10.261px 5.13px -11.971px #B3B3B3 inset,
+              13.681px 13.681px 7.696px -15.391px #FFF inset;
+}
+
+/* === Icon Styling === */
+.btn-Export .btn-icon {
+  width: 16px;
+  height: 16px;
+}
+
+
+/* Placeholder text in inputs */
+.ant-input::placeholder, .ant-picker-input input, .ant-select-selection-placeholder {
+  color: #000 !important;  /* black placeholder */
+  opacity: 1;
+}
+
+/* Placeholder row for empty table */
+:where(.css-dev-only-do-not-override-xepvsj).ant-table-wrapper .ant-table-tbody > tr.ant-table-placeholder {
+  border: 2.21px solid rgba(0, 0, 0, 0.23);
+  background: rgba(0, 0, 0, 0.02);
+  box-shadow: -10.261px -10.261px 5.13px -11.971px #fff inset,
+              -10.261px -10.261px 5.13px -11.971px #fff inset,
+              -10.261px -10.261px 5.13px -11.971px #fff inset,
+              13.681px 13.681px 7.696px -15.391px #fff inset;
+}
+
+/* === Force ONLY table headings (column titles) to light blue === */
+.transparent-table .ant-table-thead > tr > th {
+  color: #000 !important;   /* light blue */
+  font-weight: bold;
+}
+
+/* Sorting icons in table headers */
+.transparent-table .ant-table-column-sorter,
+.transparent-table .ant-table-column-sorter-up,
+.transparent-table .ant-table-column-sorter-down {
+  color: #000 !important;
+}
+
+/* === Force filter placeholders to light blue === */
+.ant-input::placeholder,
+.ant-picker-input > input::placeholder,
+.ant-select-selection-placeholder {
+  color: #000 !important;
+  opacity: 1 !important;
+}
+
+/* Filter values (once selected or typed) */
+.ant-input,
+.ant-picker-input > input,
+.ant-select-selection-item {
+  color: #000 !important;
+}
+
+/* === Export Button (text + icon) === */
+.btn-Export {
+  color: #000 !important;
+}
+
+/* === Transparent Table Body Cells === */
+.transparent-table .ant-table-tbody > tr > td {
+  background: transparent !important;
+  color: #000 !important;  /* Change text color to black */
+  border: 1.949px solid rgba(0, 0, 0, 0.23);
+  box-shadow: -9.048px -9.048px 4.524px -10.556px #fff inset, 
+              -9.048px -9.048px 4.524px -10.556px #fff inset, 
+              -9.048px -9.048px 4.524px -10.556px #fff inset, 
+              12.064px 12.064px 6.786px -13.572px #fff inset;
+}
+
+/* Ensure filter placeholders and selected text are also black */
+.ant-input, .ant-picker-input > input, .ant-select-selector {
+  color: #000 !important;  /* Ensure input, select, and date picker text is black */
+}
+
+/* Text inside filters (inputs, selects) */
+.ant-input::placeholder, .ant-picker-input > input::placeholder, .ant-select-selection-placeholder {
+  color: #000 !important;  /* Change placeholder text color to black */
+}
+
+/* Filter values (once selected or typed) */
+.ant-input,
+.ant-picker-input > input,
+.ant-select-selection-item {
+  color: #000 !important; /* Change filter values text to black */
+}
+
+.ant-pagination .ant-pagination-item-active
+ {
+    font-weight: 600; 
+     background: rgba(0, 0, 0, 0.02);
+  box-shadow: -10.261px -10.261px 5.13px -11.971px #fff inset,
+              -10.261px -10.261px 5.13px -11.971px #fff inset,
+              -10.261px -10.261px 5.13px -11.971px #fff inset,
+              13.681px 13.681px 7.696px -15.391px #fff inset;
+}
+.ant-pagination .ant-pagination-item {
+    display: inline-block;
+    min-width: 32px;
+    height: 32px;
+    margin-inline-end: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+    list-style: none;
+   font-weight: 600; 
+     background: rgba(0, 0, 0, 0.02);
+  box-shadow: -10.261px -10.261px 5.13px -11.971px #fff inset,
+              -10.261px -10.261px 5.13px -11.971px #fff inset,
+              -10.261px -10.261px 5.13px -11.971px #fff inset,
+              13.681px 13.681px 7.696px -15.391px #fff inset;
+    
+    border-radius: 6px;
+    outline: 0;
+    cursor: pointer;
+    user-select: none;
+}
+
+
+.ant-pagination .ant-pagination-item a
+
+ {
+    display: block;
+    padding: 0 6px;
+    color: #000; 
+}
+
+.ant-btn-variant-outlined, .ant-btn-variant-dashed
+
+ {
+    border-color: #d9d9d9;
+    background: rgba(0, 0, 0, 0.02);
+  box-shadow: -10.261px -10.261px 5.13px -11.971px #fff inset,
+              -10.261px -10.261px 5.13px -11.971px #fff inset,
+              -10.261px -10.261px 5.13px -11.971px #fff inset,
+              13.681px 13.681px 7.696px -15.391px #fff inset;
+}
+
+
+
+.heading-container{
+  display: flex;
+  /* flex-direction: column; */
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px;
+}
+
+.filters{
+  display: flex;
+  gap: 10px;
+}
+.map-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw; /* Full viewport width */
+  height: 100vh; /* Full viewport height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.3); /* transparent dark overlay */
+  pointer-events: all; /* block clicks */
+}
+
+  
+  .map-loader__radar {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: rgba(59, 130, 246, 0.05);
+    border: 1px solid rgba(59, 130, 246, 0.1);
+    overflow: hidden;
+  }
+  
+  .map-loader__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4CAF50;
+    z-index: 9999;
+  }
+  
+  .map-loader__satellite {
+    position: absolute;
+    width: 16px;
+    height: 8px;
+    background: #4CAF50;
+    border-radius: 4px;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: orbit 3s linear infinite;
+  }
+  
+  .map-loader__satellite:before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    top: 2px;
+    left: 2px;
+  }
+  
+  .map-loader__pulse {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: #4CAF50;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    animation: pulse 3s infinite;
+  }
+  
+  .map-loader__pulse.delay-1 {
+    animation-delay: 1s;
+  }
+  
+  .map-loader__pulse.delay-2 {
+    animation-delay: 2s;
+  }
+  
+  .map-loader__sweep {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent 50%, rgba(76, 175, 80, 0.3) 100%);
+    border-radius: 50%;
+    animation: sweep 3s linear infinite;
+    transform-origin: center;
+  }
+  
+  .map-loader__message {
+    margin-top: 20px;
+    color: #4CAF50;
+    font-weight: 500;
+    text-align: center;
+  }
+  
+  @keyframes orbit {
+    0% { transform: translateX(-50%) rotate(0deg) translateY(60px) rotate(0deg); }
+    100% { transform: translateX(-50%) rotate(360deg) translateY(60px) rotate(-360deg); }
+  }
+  
+  @keyframes pulse {
+    0% { transform: translate(-50%, -50%) scale(0); opacity: 0.7; }
+    100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+  }
+  
+  @keyframes sweep {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

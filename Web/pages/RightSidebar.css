@@ -1,0 +1,249 @@
+/* =========================
+   Design Tokens
+   ========================= */
+:root {
+  --bg-panel: rgba(255, 255, 255, 0.9);
+  --bg-elevated: #ffffff;
+  --bg-muted: #f6f7f8;
+  --text: #13171a;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+
+  --accent: #39E23C;          /* primary brand green */
+  --accent-2: #4caf50;        /* secondary green */
+  --accent-blue: #2196F3;
+  --accent-blue-hover: #1976d2;
+  --danger: #f44336;
+  --danger-hover: #e53935;
+
+  --radius: 14px;
+  --radius-sm: 10px;
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+  --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.10);
+  --ring: 0 0 0 3px rgba(57, 226, 60, 0.35);
+  --gap: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-panel: rgba(23, 25, 28, 0.8);
+    --bg-elevated: #171a1d;
+    --bg-muted: #0f1214;
+    --text: #e5e7eb;
+    --muted: #9aa3ad;
+    --border: #2b333a;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.35);
+  }
+}
+
+/* Motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; animation: none !important; }
+}
+
+/* =========================
+   Top Tool Sidebar
+   ========================= */
+.tool-sidebar22222 {
+  position: fixed; /* stays put while scrolling */
+  top: 15%;
+  right: 5%;
+  display: flex;
+  flex-direction: row;
+  gap: clamp(8px, 1.25vw, var(--gap));
+ box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 6px;
+  padding: 8px 10px;
+  border-radius: var(--radius);
+  
+  z-index: 700;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.right-sidebar-button {
+  width: clamp(28px, 2.4vw, 34px);
+  height: clamp(28px, 2.4vw, 34px);
+  border: none;
+  border-radius: 10px;
+  background-color: var(--accent);
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  touch-action: manipulation;
+     
+  transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.08);
+}
+.right-sidebar-button:hover { transform: translateY(-1px); }
+.right-sidebar-button:active { transform: translateY(0); }
+.right-sidebar-button:focus-visible { outline: none; box-shadow: var(--ring); }
+
+.right-sidebar .material-icons-outlined {
+  font-size: clamp(18px, 1.8vw, 22px);
+  color: currentColor; /* inherits from button */
+}
+
+/* =========================
+   Drawing List Panel
+   ========================= */
+.drawing-list {
+  position: fixed;
+  bottom: 20px;
+  right: clamp(16px, 5vw, 480px);
+  width: clamp(260px, 28vw, 360px);
+  max-height: min(42vh, 420px);
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  background: var(--bg-panel);
+  padding: 14px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  z-index: 9999;
+  transition: transform 200ms ease, opacity 200ms ease;
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+}
+
+/* optional hidden/collapsed state you can toggle with JS */
+.drawing-list.is-hidden {
+  opacity: 0;
+  transform: translateY(6px) scale(0.98);
+  pointer-events: none;
+}
+
+.drawing-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow: hidden;
+}
+
+/* Individual card */
+.drawing-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  background: var(--bg-elevated);
+  color: var(--text);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: background-color 160ms ease, transform 160ms ease, border-color 160ms ease;
+  cursor: pointer;
+}
+.drawing-item:hover {
+  background-color: var(--bg-muted);
+  transform: translateY(-1px);
+}
+.drawing-item:active { transform: translateY(0); }
+.drawing-item:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+  border-color: transparent;
+}
+
+/* =========================
+   Buttons (shared + variants)
+   ========================= */
+.layer-btn,
+.action-buttons button {
+  --btn-bg: var(--accent-2);
+  --btn-bg-hover: #45a049;
+  background-color: var(--btn-bg);
+  color: #fff;
+  padding: 9px 14px;
+  border-radius: 10px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 140ms ease, transform 120ms ease, box-shadow 140ms ease;
+  box-shadow: 0 2px 0 rgba(0,0,0,0.06);
+  touch-action: manipulation;
+}
+.layer-btn:hover,
+.action-buttons button:hover {
+  background-color: var(--btn-bg-hover);
+  transform: translateY(-1px);
+}
+.layer-btn:active,
+.action-buttons button:active {
+  transform: translateY(0);
+}
+.layer-btn:focus-visible,
+.action-buttons button:focus-visible {
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+/* Variants driven by your existing classes */
+.edit-btn { --btn-bg: var(--accent-2); --btn-bg-hover: #45a049; }
+.hide-btn { --btn-bg: var(--accent-blue); --btn-bg-hover: var(--accent-blue-hover); }
+.delete-btn { --btn-bg: var(--danger); --btn-bg-hover: var(--danger-hover); }
+
+/* Spacing tweaks */
+.delete-btn { margin-inline: 10px; }
+
+/* Disabled state */
+.layer-btn[disabled],
+.action-buttons button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none !important;
+}
+
+/* =========================
+   Action Buttons Footer
+   ========================= */
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: space-between;
+  padding-top: 10px;
+  flex-wrap: wrap;
+}
+@media (max-width: 560px) {
+  .action-buttons { gap: 8px; }
+  .action-buttons button { flex: 1 1 calc(50% - 8px); }
+}
+
+/* =========================
+   Scrollbar polish (WebKit)
+   ========================= */
+.drawing-list::-webkit-scrollbar { width: 10px; height: 10px; }
+.drawing-list::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--border), #cfd6dd);
+  border-radius: 10px;
+}
+.drawing-list::-webkit-scrollbar-track {
+  background: transparent;
+  border-radius: 10px;
+}
+
+/* =========================
+   Small-screen adjustments
+   ========================= */
+@media (max-width: 768px) {
+  .tool-sidebar22222 {
+    right: 12px;
+    top: 12px;
+    padding: 6px 8px;
+    gap: 8px;
+  }
+
+  .drawing-list {
+    right: 12px;
+    left: 12px;        /* allow it to stretch nicely */
+    width: auto;
+    bottom: 16px;
+    max-height: 48vh;
+  }
+}
