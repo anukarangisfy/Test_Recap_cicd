@@ -14,30 +14,54 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4
 
+    # -----------------------------
+    # BACKEND DEPLOYMENT
+    # -----------------------------
+
     - name: Install Backend Dependencies
+      shell: powershell
       run: |
         cd api
         npm install
 
-    - name: Deploy Backend
+    - name: Stop Backend (PM2)
+      shell: powershell
       run: |
-        xcopy api C:\WebApp_Recap4NDC\RECAP4NDC\api /E /Y
+        pm2 stop recap-api
 
-    - name: Restart Backend
+    - name: Deploy Backend Code
+      shell: powershell
+      run: |
+        robocopy api C:\WebApp_Recap4NDC\RECAP4NDC\api /E /NFL /NDL /NJH /NJS /nc /ns
+
+    - name: Start Backend
+      shell: powershell
       run: |
         cd C:\WebApp_Recap4NDC\RECAP4NDC\api
-        pm2 restart all
+        pm2 start index.js --name recap-api --update-env
+        pm2 save
+
+    # -----------------------------
+    # FRONTEND BUILD
+    # -----------------------------
 
     - name: Install Frontend Dependencies
+      shell: powershell
       run: |
-        cd web
+        cd Web
         npm install
 
-    - name: Build React Frontend
+    - name: Build React Application
+      shell: powershell
       run: |
-        cd web
+        cd Web
         npm run build
 
-    - name: Deploy Frontend
+    # -----------------------------
+    # FRONTEND DEPLOY
+    # -----------------------------
+
+    - name: Deploy Frontend Build
+      shell: powershell
       run: |
-        xcopy web\build C:\WebApp_Recap4NDC\RECAP4NDC\web\build /E /Y
+        robocopy Web\build C:\WebApp_Recap4NDC\RECAP4NDC\Web\build /E /NFL /NDL /NJH /NJS /nc /ns
